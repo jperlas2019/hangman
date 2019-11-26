@@ -15,14 +15,18 @@ function randomGen(min, max){
 }
 
 //Generates all buttons dynamically
+function Button(letter){ //BUTTON OBJECT CONSTRUCTOR -JAGUAR
+    this.button = document.createElement("BUTTON")
+    this.button.innerHTML = letter
+    this.button.onclick = checkIn(letter, word, this.button)
+    this.button.className = "button"
+    document.body.appendChild(this.button)
+}
+
 function alphaButton(){
     for(let i = 0; i < 26; i++){
         let letter = String.fromCharCode(65 + i);
-        let btn = document.createElement("BUTTON");
-        btn.innerHTML = letter;
-        btn.onclick = checkIn(letter, word, btn);
-        btn.className = "button";
-        document.getElementById("buttons").appendChild(btn);
+        new Button(letter);
     }
 }
 
